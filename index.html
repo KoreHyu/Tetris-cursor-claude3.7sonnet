@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>テトリス</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div id="game-container">
+            <div id="title-screen" class="screen active">
+                <h1>テトリス</h1>
+                <button id="start-button">ゲームスタート</button>
+                <button id="settings-button">設定</button>
+                <button id="highscore-button">ハイスコア</button>
+            </div>
+            
+            <div id="game-screen" class="screen">
+                <div class="game-info">
+                    <div class="info-panel">
+                        <div class="score-container">
+                            <h3>スコア</h3>
+                            <p id="score">0</p>
+                        </div>
+                        <div class="level-container">
+                            <h3>レベル</h3>
+                            <p id="level">1</p>
+                        </div>
+                        <div class="lines-container">
+                            <h3>ライン</h3>
+                            <p id="lines">0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="hold-container">
+                        <h3>ホールド</h3>
+                        <canvas id="hold-canvas" width="100" height="100"></canvas>
+                    </div>
+                    
+                    <div class="next-container">
+                        <h3>次のピース</h3>
+                        <canvas id="next-canvas" width="100" height="100"></canvas>
+                    </div>
+                </div>
+                
+                <canvas id="game-canvas" width="300" height="600"></canvas>
+                
+                <div class="controls">
+                    <button id="pause-button">ポーズ</button>
+                </div>
+            </div>
+            
+            <div id="pause-screen" class="screen">
+                <h2>ポーズ</h2>
+                <button id="resume-button">再開</button>
+                <button id="restart-button">リスタート</button>
+                <button id="exit-button">タイトルに戻る</button>
+            </div>
+            
+            <div id="gameover-screen" class="screen">
+                <h2>ゲームオーバー</h2>
+                <p>スコア: <span id="final-score">0</span></p>
+                <div id="highscore-entry" class="hidden">
+                    <h3>新しいハイスコア!</h3>
+                    <input type="text" id="player-name" placeholder="名前を入力" maxlength="10">
+                    <button id="save-score">保存</button>
+                </div>
+                <button id="retry-button">リトライ</button>
+                <button id="back-to-title">タイトルに戻る</button>
+            </div>
+            
+            <div id="settings-screen" class="screen">
+                <h2>設定</h2>
+                <div class="settings-option">
+                    <h3>BGM音量</h3>
+                    <input type="range" id="bgm-volume" min="0" max="100" value="50">
+                </div>
+                <div class="settings-option">
+                    <h3>SE音量</h3>
+                    <input type="range" id="se-volume" min="0" max="100" value="50">
+                </div>
+                <div class="settings-option">
+                    <h3>難易度</h3>
+                    <select id="difficulty">
+                        <option value="easy">かんたん</option>
+                        <option value="normal" selected>ふつう</option>
+                        <option value="hard">むずかしい</option>
+                    </select>
+                </div>
+                <div class="settings-option">
+                    <h3>操作方法</h3>
+                    <table id="controls-table">
+                        <tr>
+                            <td>左移動</td>
+                            <td id="control-left">←</td>
+                        </tr>
+                        <tr>
+                            <td>右移動</td>
+                            <td id="control-right">→</td>
+                        </tr>
+                        <tr>
+                            <td>ソフトドロップ</td>
+                            <td id="control-soft-drop">↓</td>
+                        </tr>
+                        <tr>
+                            <td>ハードドロップ</td>
+                            <td id="control-hard-drop">スペース</td>
+                        </tr>
+                        <tr>
+                            <td>時計回りに回転</td>
+                            <td id="control-rotate-cw">X</td>
+                        </tr>
+                        <tr>
+                            <td>反時計回りに回転</td>
+                            <td id="control-rotate-ccw">Z</td>
+                        </tr>
+                        <tr>
+                            <td>ホールド</td>
+                            <td id="control-hold">C</td>
+                        </tr>
+                    </table>
+                </div>
+                <button id="back-from-settings">戻る</button>
+            </div>
+            
+            <div id="highscore-screen" class="screen">
+                <h2>ハイスコア</h2>
+                <ul id="highscore-list">
+                    <!-- ハイスコアはJSで動的に追加 -->
+                </ul>
+                <button id="back-from-highscore">戻る</button>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/tetromino.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

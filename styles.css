@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', sans-serif;
+    background-color: #1a1a2e;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+    width: 100%;
+    padding: 20px;
+}
+
+#game-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.screen {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 20px;
+    background-color: #16213e;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.screen.active {
+    display: flex;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    color: #00fff5;
+    text-shadow: 0 0 10px rgba(0, 255, 245, 0.5);
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00fff5;
+}
+
+h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: #e94560;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    background-color: #e94560;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #ff6b81;
+    transform: scale(1.05);
+}
+
+#game-screen {
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.game-info {
+    display: flex;
+    flex-direction: column;
+    margin-right: 20px;
+    width: 180px;
+}
+
+.info-panel {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: rgba(25, 25, 25, 0.5);
+    border-radius: 5px;
+}
+
+.info-panel div {
+    margin-bottom: 15px;
+}
+
+.info-panel p {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #00fff5;
+}
+
+.hold-container, .next-container {
+    padding: 10px;
+    background-color: rgba(25, 25, 25, 0.5);
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+#game-canvas {
+    background-color: #0a0a1a;
+    border: 2px solid #e94560;
+    border-radius: 5px;
+}
+
+.controls {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+#pause-button {
+    background-color: #0f3460;
+}
+
+#pause-button:hover {
+    background-color: #1a5b9c;
+}
+
+#highscore-entry {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: rgba(25, 25, 25, 0.5);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.hidden {
+    display: none;
+}
+
+#player-name {
+    padding: 8px;
+    border-radius: 3px;
+    border: none;
+    margin: 10px 0;
+    width: 200px;
+    font-size: 1rem;
+}
+
+#highscore-list {
+    list-style-type: none;
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 20px;
+}
+
+#highscore-list li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: rgba(25, 25, 25, 0.5);
+    border-radius: 3px;
+}
+
+.settings-option {
+    width: 100%;
+    max-width: 400px;
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: rgba(25, 25, 25, 0.5);
+    border-radius: 5px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+select {
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+    border-radius: 3px;
+    border: none;
+    background-color: #ffffff;
+}
+
+#controls-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#controls-table td {
+    padding: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#controls-table td:first-child {
+    width: 60%;
+}
+
+#controls-table td:last-child {
+    text-align: center;
+    font-weight: bold;
+    color: #00fff5;
+}
+
+@media (max-width: 768px) {
+    #game-screen {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .game-info {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .info-panel, .hold-container, .next-container {
+        width: 30%;
+        margin-bottom: 0;
+    }
+    
+    #game-canvas {
+        width: 100%;
+        height: auto;
+    }
+} 
